@@ -57,6 +57,11 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Furniture Brand Colors
+        "brand-warm": "hsl(var(--brand-warm))",
+        "brand-terracotta": "hsl(var(--brand-terracotta))",
+        "brand-sage": "hsl(var(--brand-sage))",
+        "brand-charcoal": "hsl(var(--brand-charcoal))",
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -2,41 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Furniture Ecommerce Design System - Professional & Warm */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Brand Colors - Warm Professional Palette */
+    --background: 35 100% 98%;
+    --foreground: 20 14% 4%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 20 14% 4%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 20 14% 4%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Warm Charcoal */
+    --primary: 20 14% 4%;  
+    --primary-foreground: 35 100% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Warm Light */
+    --secondary: 30 20% 95%;
+    --secondary-foreground: 20 14% 4%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted - Soft Neutrals */
+    --muted: 25 15% 92%;
+    --muted-foreground: 25 8% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Terracotta */
+    --accent: 15 75% 65%;
+    --accent-foreground: 35 100% 98%;
+
+    /* Furniture Brand Colors */
+    --brand-warm: 25 35% 85%;
+    --brand-terracotta: 15 75% 65%;
+    --brand-sage: 120 25% 70%;
+    --brand-charcoal: 20 14% 4%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(var(--brand-warm)));
+    --gradient-card: linear-gradient(180deg, hsl(var(--card)), hsl(var(--brand-warm)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--brand-terracotta)), hsl(15 85% 75%));
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(var(--brand-charcoal) / 0.1);
+    --shadow-hover: 0 8px 30px -6px hsl(var(--brand-charcoal) / 0.15);
+    --shadow-product: 0 2px 15px -3px hsl(var(--brand-charcoal) / 0.08);
+
+    /* Interactive States */
+    --hover-lift: translateY(-2px);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 35 100% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 25 15% 89%;
+    --input: 25 15% 89%;
+    --ring: 15 75% 65%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +125,38 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Furniture Brand Components */
+  .hero-section {
+    @apply bg-gradient-to-br from-background to-brand-warm/20;
+  }
+  
+  .product-card {
+    @apply bg-card rounded-xl shadow-[var(--shadow-product)] 
+           transition-[var(--transition-smooth)] hover:shadow-[var(--shadow-hover)] 
+           hover:transform hover:translate-y-[-2px];
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-primary-foreground px-8 py-3 rounded-xl 
+           font-medium transition-[var(--transition-smooth)] 
+           hover:bg-primary/90 hover:shadow-[var(--shadow-soft)];
+  }
+  
+  .btn-accent {
+    @apply bg-accent text-accent-foreground px-8 py-3 rounded-xl 
+           font-medium transition-[var(--transition-smooth)] 
+           hover:bg-accent/90 hover:shadow-[var(--shadow-hover)];
+  }
+  
+  .fade-in {
+    @apply opacity-0 translate-y-4 transition-[var(--transition-smooth)];
+  }
+  
+  .fade-in.animate {
+    @apply opacity-100 translate-y-0;
   }
 }
